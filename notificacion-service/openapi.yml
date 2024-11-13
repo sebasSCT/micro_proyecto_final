@@ -1,0 +1,260 @@
+openapi: 3.0.0
+info:
+  title: Notificaciones API
+  version: "1.0"
+  description: API para enviar y gestionar notificaciones por correo electrónico, mensajes de texto y WhatsApp.
+servers:
+  - url: http://app-notificaciones:8080
+    description: Servidor local
+
+paths:
+  /send:
+    post:
+      summary: Enviar notificación
+      description: Enviar notificación usando correo electrónico o mensaje de texto.
+      tags:
+        - Notifications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: usuario@ejemplo.com
+                message:
+                  type: string
+                  example: "Hola, este es un mensaje de prueba"
+      responses:
+        "200":
+          description: Notificación enviada exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "Notification sent successfully!"
+        "400":
+          description: Error en la solicitud
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid request data"
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Failed to send email"
+
+  /notification:
+    get:
+      summary: Listar todas las notificaciones
+      description: Obtiene una lista de todas las notificaciones
+      tags:
+        - Notifications
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: Número de página
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          description: Número de notificaciones por página
+      responses:
+        "200":
+          description: Lista de notificaciones
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notifications:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        email:
+                          type: string
+                        message:
+                          type: string
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Server error"
+
+  /notification/{id}:
+    get:
+      summary: Obtener notificación por ID
+      description: Obtiene los detalles de una notificación específica
+      tags:
+        - Notifications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "12345"
+          description: ID de la notificación
+      responses:
+        "200":
+          description: Detalles de la notificación
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    example: usuario@ejemplo.com
+                  message:
+                    type: string
+                    example: "Este es un mensaje de prueba"
+        "404":
+          description: Notificación no encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Notification not found"
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Server error"
+
+  /send-whatsapp:
+    post:
+      summary: Enviar notificación por WhatsApp
+      description: Enviar una notificación mediante un mensaje de WhatsApp.
+      tags:
+        - Notifications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to:
+                  type: string
+                  default: "whatsapp:+573102423689"
+                  description: Número de teléfono en formato WhatsApp (incluyendo el prefijo whatsapp:)
+                message:
+                  type: string
+                  default: "Esto es un mensaje de prueba whatsapp notification"
+                  description: Contenido del mensaje de WhatsApp
+      responses:
+        "200":
+          description: Notificación de WhatsApp enviada exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "WhatsApp notification sent successfully!"
+        "400":
+          description: Error en la solicitud
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid request data"
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Failed to send WhatsApp notification"
+
+  /send-sms:
+    post:
+      summary: Enviar notificación por SMS
+      description: Enviar una notificación mediante mensaje SMS.
+      tags:
+        - Notifications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to:
+                  type: string
+                  default: "+573102423689"
+                  description: Número de teléfono en formato internacional
+                message:
+                  type: string
+                  default: "Esto es una prueba sms notification"
+                  description: Contenido del mensaje SMS
+      responses:
+        "200":
+          description: Notificación SMS enviada exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "SMS notification sent successfully!"
+        "400":
+          description: Error en la solicitud
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid request data"
+        "500":
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Failed to send SMS notification"

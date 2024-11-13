@@ -1,0 +1,27 @@
+{
+  "name": "pruebas",
+  "version": "1.0.0",
+  "description": "pruebas automatizadas",
+  "main": "index.js",
+  "scripts": {
+    "test_1": "cucumber-js --tags \"not @final\" --format json:./reports/cucumber_report.json",
+    "test_2": "cucumber-js --tags \"@final\" --format json:./reports/cucumber_report.json",
+    "report": "node reporter.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "axios": "^1.7.7",
+    "dockerode": "^4.0.2",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "sinon": "^19.0.2"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
+    "@faker-js/faker": "^9.0.2",
+    "cucumber-html-reporter": "^6.0.0",
+    "jest": "^29.7.0"
+  }
+}

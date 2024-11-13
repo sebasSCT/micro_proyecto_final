@@ -1,0 +1,220 @@
+openapi: 3.0.0
+info:
+  title: User Profile Management API
+  description: API for managing user profiles.
+  version: 1.0.0
+servers:
+  - url: http://app-perfil:8079
+    description: Base URL for the API
+paths:
+  /usuario:
+    get:
+      summary: Get all user profiles
+      description: Retrieve a paginated list of all user profiles.
+      parameters:
+        - name: page
+          in: query
+          description: Page number to retrieve.
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          description: Number of profiles per page.
+          required: false
+          schema:
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: A list of user profiles.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  profiles:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UserProfile'
+                  pagination:
+                    type: object
+                    properties:
+                      currentPage:
+                        type: integer
+                        example: 1
+                      perPage:
+                        type: integer
+                        example: 10
+                      totalProfiles:
+                        type: integer
+                        example: 100
+                      totalPages:
+                        type: integer
+                        example: 10
+        '500':
+          description: Error retrieving profiles.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Error fetching profiles'
+                  details:
+                    type: string
+                    example: 'Database connection issue'
+    post:
+      summary: Create a new user profile
+      description: Create a new profile with the provided data.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfile'
+      responses:
+        '201':
+          description: Profile created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '64e2f340fc13ae1f8b0f1d28'
+        '400':
+          description: Invalid data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Error creating profile'
+                  details:
+                    type: string
+                    example: 'Invalid data provided'
+  /usuario/{id}:
+    get:
+      summary: Get a user profile by ID
+      description: Retrieve a specific user profile by their unique ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the user profile to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single user profile.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '404':
+          description: Profile not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Profile not found'
+    put:
+      summary: Update a user profile
+      description: Update the profile of a user by their ID with the provided data.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the user profile to update.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfile'
+      responses:
+        '200':
+          description: Profile updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  modifiedCount:
+                    type: integer
+                    example: 1
+        '400':
+          description: Invalid data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Error updating profile'
+                  details:
+                    type: string
+                    example: 'Invalid data provided'
+        '404':
+          description: Profile not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Profile not found'
+components:
+  schemas:
+    UserProfile:
+      type: object
+      properties:
+        user_id:
+          type: string
+          example: 'user123'
+        nickname:
+          type: string
+          example: 'john_doe'
+        personal_url:
+          type: string
+          example: 'https://john_doe.com'
+        contact_public:
+          type: boolean
+          example: true
+        address:
+          type: string
+          example: '123 Main St, Springfield, USA'
+        bio:
+          type: string
+          example: 'Software developer and tech enthusiast.'
+        organization:
+          type: string
+          example: 'TechCorp'
+        country:
+          type: string
+          example: 'USA'
+        social_links:
+          type: object
+          properties:
+            twitter:
+              type: string
+              example: 'https://twitter.com/john_doe'
+            linkedin:
+              type: string
+              example: 'https://linkedin.com/in/johndoe'
+        identificacion:
+          type: string
+          example: 'ID12345'

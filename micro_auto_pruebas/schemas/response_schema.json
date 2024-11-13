@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MensajeDTO",
+    "type": "object",
+    "properties": {
+      "error": {
+        "type": "boolean",
+        "description": "Indicates if there was an error"
+      },
+      "respuesta": {
+        "oneOf": [
+        {
+          "type": "object",
+          "description": "The response object, generic type T"
+        },
+        {
+          "type": "string",
+          "description": "Error message or other response as string"
+        }
+      ]
+      }
+    },
+    "required": ["error", "respuesta"]
+  }

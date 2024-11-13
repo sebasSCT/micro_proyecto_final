@@ -1,0 +1,189 @@
+volumes:
+   mongo_db:
+   rabbitmq_data:
+   loki_data:
+   grafana_data:
+   prometheus_data:
+   jenkins_home:
+
+
+services:
+  app-autenticacion:
+    build:
+      context: ./Autenticacion
+    ports:
+      - "8087:8087" 
+    environment:
+      - user=root
+      - password=example
+      - host=mongo_database
+      - port=27017
+      - db=autenticate
+      - hostrabbitmq=rabbitmq
+      - portrabbitmq=5672
+      - userabbitmq=user
+      - passwordrabbitmq=password
+
+  rabbitmq:
+    image: rabbitmq:4.0.2-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"  
+      - "15672:15672"
+      - "15692:15692"  
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password 
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+ 
+  mongo_database:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    volumes:
+      - mongo_db:/data/db
+    ports:
+      - "27017:27017"
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    depends_on:
+      - mongo_database
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=example
+      - ME_CONFIG_MONGODB_URL=mongodb://root:example@mongo_database:27017/
+
+  app-crud:
+    build:
+      context: ./CRUD
+    ports:
+      - "8084:8084"
+      - "8082:8082"
+    environment:
+      - user=root
+      - password=example
+      - host=mongo_database
+      - port=27017
+      - db=crud
+      - hostrabbitmq=rabbitmq
+      - portrabbitmq=5672
+      - userabbitmq=user
+      - passwordrabbitmq=password
+
+  app-notificaciones:
+    build:
+      context: ./notificacion-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - rabbitmq
+      - mongo_database
+    environment:
+      - MONGO_HOST=mongo_database
+      - MONGO_PORT=27017
+      - MONGO_USER=root
+      - MONGO_PASSWORD=example
+      - MONGO_DB=notificacion
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=user
+      - RABBITMQ_PASS=password
+
+  loki:
+    image: grafana/loki:latest
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ./loki-config.yml:/etc/loki/local-config.yaml
+      - loki_data:/loki
+
+  promtail:
+    image: grafana/promtail:latest
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers
+      - ./promtail-config.yml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  
+      - ./alert.rules.yml:/etc/prometheus/alert.rules.yml  
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'  
+    ports:
+      - "9090:9090"
+    depends_on:
+      - alertmanager
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
+  
+  mongodb_exporter:
+    image: bitnami/mongodb-exporter:latest
+    environment:
+      MONGODB_URI: mongodb://root:example@mongo_database:27017
+    ports:
+      - "9216:9216"
+  
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins-server
+    ports:
+      - "8086:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+  
+  swagger-ui-notificaciones:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8083:8080"
+    environment:
+      SWAGGER_JSON: /app/openapi.yml
+    volumes:
+      - ./notificacion-service/openapi.yml:/app/openapi.yml
+
+  swagger-ui-profiles:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8078:8080"
+    environment:
+      SWAGGER_JSON: /app/openapi.yml
+    volumes:
+      - ./ProfileManagement/openapi.yml:/app/openapi.yml
+
+  app-perfil:
+    build:
+      context: ./ProfileManagement
+    ports:
+      - "8079:8079"
+    volumes:
+      - ./ProfileManagement:/app
+    environment:
+      - DB_USER=root
+      - DB_PASS=example
+      - DB_HOST=mongo_database
+      - DB_PORT=27017

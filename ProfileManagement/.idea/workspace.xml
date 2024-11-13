@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cd81a2aa-93e2-4dc6-b64f-5880eef19eb0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/openapi.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/ProfileController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Autenticacion/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Autenticacion/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/controllers/Reto3Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/controllers/Reto4Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/services/implementacion/AutenticacionServicioImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/services/interfaces/AutenticacionServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/services/interfaces/AutenticacionServicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/utils/JWTUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/AutenticacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/AutenticacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/GeneralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/documentos/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/documentos/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/general/CambioPasswordDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/general/EmailDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/general/LoginDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/ActualizarUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/ActualizarUsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/DetalleUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/DetalleUsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/ItemUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/ItemUsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/RegistroUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/RegistroUsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/repositorios/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/repositorios/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/AutenticacionServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/EmailServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/GeneralServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/GeneralServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/AutenticacionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/GeneralService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/GeneralService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/resources/openapi.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/resources/openapi.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/micro_auto_pruebas.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/Jenkinsfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/Pruebas.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/autenticacion.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/general.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/step_definitions/autenticacionSteps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/step_definitions/generalSteps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/step_definitions/usuarioSteps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/usuario.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../auto_pruebas/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notificacion-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notificacion-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notificacion-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notificacion-service/handelrs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/handelrs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notificacion-service/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notificacion-service/mongo.go" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/mongo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notificacion-service/rabbitmq.go" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/rabbitmq.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../prometheus.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../prometheus.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="OpenAPI" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AlejandroZaSa&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sebasSCT/micro_observabilidad.git&quot;,
+    &quot;accountId&quot;: &quot;dffcd79b-2cd6-475b-8cdd-28cec0dc5631&quot;
+  }
+}</component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2ogBAqksGGiQ805FTvEHYorzDY2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/microservicios/micro_taller_logs/ProfileManagement&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Documents\microservicios\micro_taller_logs\ProfileManagement" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="ProfileManagement" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="ProfileManagement" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ProfileManagement" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ProfileManagement" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cd81a2aa-93e2-4dc6-b64f-5880eef19eb0" name="Changes" comment="" />
+      <created>1731281199649</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731281199649</updated>
+      <workItem from="1731281201558" duration="1770000" />
+      <workItem from="1731290380891" duration="180000" />
+      <workItem from="1731290570960" duration="43000" />
+      <workItem from="1731290622910" duration="14000" />
+      <workItem from="1731290643518" duration="3343000" />
+      <workItem from="1731366706963" duration="1353000" />
+      <workItem from="1731414667255" duration="28000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
