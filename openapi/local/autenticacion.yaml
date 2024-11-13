@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: API para gestionar usuarios, incluyendo registro, login,cambio de contraseña y operaciones CRUD de autenticacion
 servers:
-  - url: http://proyectofinal-app-autenticacion-1:8087
+  - url: http://localhost:8087
     description: Servidor local de Autenticacion
 
 paths:

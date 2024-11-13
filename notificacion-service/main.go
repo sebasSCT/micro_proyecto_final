@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
@@ -36,6 +37,8 @@ func main() {
 	// Agregar ruta de métricas en el mismo servidor
 	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
 
+	r.GET("/health", HealthCheck)
+
 	// Ruta para acceder a Swagger UI
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
@@ -55,4 +58,12 @@ func main() {
 	<-signalChan
 
 	log.Println("Shutting down gracefully...")
+}
+
+// HealthCheck maneja el endpoint /health
+func HealthCheck(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "UP",
+		"message": "The application is running smoothly.",
+	})
 }

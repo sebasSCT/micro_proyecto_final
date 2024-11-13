@@ -1,0 +1,122 @@
+openapi: 3.0.3
+info:
+  title: Prometheus API
+  description: API para monitoreo y consulta de métricas con Prometheus.
+  version: "1.0.0"
+servers:
+  - url: http://proyectofinal-prometheus-1:9090
+    description: Servidor local de Prometheus
+
+paths:
+  /-/healthy:
+    get:
+      summary: Verifica el estado del servicio Prometheus.
+      description: Endpoint para verificar si el servicio Prometheus está activo y en funcionamiento.
+      tags:
+        - Health
+      responses:
+        '200':
+          description: El servicio está activo y operativo.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "UP"
+        '503':
+          description: El servicio no está disponible.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "DOWN"
+  
+  /api/v1/query:
+    get:
+      summary: Consulta de métricas en Prometheus.
+      description: Realiza consultas de métricas almacenadas en Prometheus mediante el lenguaje de consulta PromQL
+      tags:
+        - Query
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+          description: La consulta en PromQL para extraer métricas. 
+        - in: query
+          name: time
+          schema:
+            type: string
+            format: date-time
+          description: Timestamp en el que ejecutar la consulta, en formato RFC3339 o Unix timestamp.
+        - in: query
+          name: timeout
+          schema:
+            type: string
+            example: "30s"
+          description: Tiempo máximo permitido para la consulta, especificado como duración (por ejemplo, "30s" para 30 segundos).
+      responses:
+        '200':
+          description: Resultados de la consulta de métricas.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  data:
+                    type: object
+                    properties:
+                      resultType:
+                        type: string
+                        example: "vector"
+                      result:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            metric:
+                              type: object
+                              description: Etiquetas de la métrica consultada.
+                              additionalProperties:
+                                type: string
+                            value:
+                              type: array
+                              description: Array con el timestamp y el valor de la métrica.
+                              items:
+                                type: string
+                              example: ["<timestamp>", "<metric_value>"]
+        '400':
+          description: Error en la consulta (consulta mal formada).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "error"
+                  error:
+                    type: string
+                    example: "Query parameter 'query' is required."
+        '500':
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "error"
+                  error:
+                    type: string
+                    example: "Internal server error."

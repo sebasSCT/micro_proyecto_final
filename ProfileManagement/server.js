@@ -23,6 +23,14 @@ app.get('/usuario/:id', ProfileController.getProfile);
 app.get('/usuario', ProfileController.getAllProfiles);
 app.put('/usuario/:id', ProfileController.updateProfile);
 
+app.get('/health', (req, res) => {
+    res.status(200).json({
+      status: 'UP',
+      message: 'The application is running smoothly.',
+    });
+  });
+  
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

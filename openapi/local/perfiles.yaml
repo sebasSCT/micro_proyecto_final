@@ -4,7 +4,7 @@ info:
   description: API for managing user profiles.
   version: 1.0.0
 servers:
-  - url: http://proyectofinal-app-perfil-1:8079
+  - url: http://localhost:8079
     description: Base URL for the API
 paths:
   /usuario:
