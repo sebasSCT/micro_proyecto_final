@@ -6,7 +6,6 @@ volumes:
    prometheus_data:
    jenkins_home:
 
-
 services:
   app-autenticacion:
     build:
@@ -160,7 +159,7 @@ services:
   swagger-ui-notificaciones:
     image: swaggerapi/swagger-ui
     ports:
-      - "8083:8080"
+      - "8090:8080"
     environment:
       SWAGGER_JSON: /app/openapi.yml
     volumes:
@@ -169,11 +168,41 @@ services:
   swagger-ui-profiles:
     image: swaggerapi/swagger-ui
     ports:
-      - "8078:8080"
+      - "8091:8080"
     environment:
       SWAGGER_JSON: /app/openapi.yml
     volumes:
       - ./ProfileManagement/openapi.yml:/app/openapi.yml
+
+  swagger-ui-prometheus:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-ui-prometheus
+    ports:
+      - "8092:8080"
+    environment:
+      SWAGGER_JSON: /app/prometheus.yaml
+    volumes:
+      - ./openapi/prometheus.yaml:/app/prometheus.yaml
+
+  swagger-ui-loki:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-ui-loki
+    ports:
+      - "8093:8080"
+    environment:
+      SWAGGER_JSON: /app/loki.yaml
+    volumes:
+      - ./openapi/loki.yaml:/app/loki.yaml
+
+  swagger-ui-autenticacion:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-ui-autenticacion
+    ports:
+      - "8094:8080"
+    environment:
+      SWAGGER_JSON: /app/openapi.yaml
+    volumes:
+      - ./Autenticacion/src/main/resources/openapi.yml:/app/openapi.yaml
 
   app-perfil:
     build:

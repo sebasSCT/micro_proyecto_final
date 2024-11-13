@@ -1,0 +1,126 @@
+openapi: 3.0.3
+info:
+  title: Loki API
+  description: API para monitoreo y consulta de logs con Loki.
+  version: "1.0.0"
+servers:
+  - url: http://proyectofinal-loki-1:3100
+    description: Servidor local de Loki
+
+paths:
+  /ready:
+    get:
+      summary: Verifica el estado del servicio Loki.
+      description: Endpoint que verifica si el servicio Loki está activo y funcionando correctamente.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: El servicio está activo y operativo.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "UP"
+        '503':
+          description: El servicio no está disponible.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "DOWN"
+  
+  /query:
+    get:
+      summary: Consulta logs en Loki.
+      description: Permite realizar consultas sobre los logs almacenados en Loki utilizando el lenguaje de consultas de Loki.
+      tags:
+      - Query
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+          description: La consulta a ejecutar en Loki, por ejemplo `{job="app"}`.
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 100
+          description: Límite de resultados a retornar.
+        - in: query
+          name: start
+          schema:
+            type: integer
+          description: Timestamp de inicio en formato Unix epoch en nanosegundos.
+        - in: query
+          name: end
+          schema:
+            type: integer
+          description: Timestamp de fin en formato Unix epoch en nanosegundos.
+      responses:
+        '200':
+          description: Resultados de la consulta de logs.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  data:
+                    type: object
+                    properties:
+                      resultType:
+                        type: string
+                        example: "streams"
+                      result:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            stream:
+                              type: object
+                              description: Etiquetas asociadas a la entrada de log.
+                            values:
+                              type: array
+                              description: Array de tuplas con timestamp y mensaje de log.
+                              items:
+                                type: array
+                                items:
+                                  type: string
+                                example: ["<timestamp>", "<log message>"]
+        '400':
+          description: Error en la consulta (consulta mal formada).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "error"
+                  error:
+                    type: string
+                    example: "Query parameter 'query' is required."
+        '500':
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "error"
+                  error:
+                    type: string
+                    example: "Internal server error."
