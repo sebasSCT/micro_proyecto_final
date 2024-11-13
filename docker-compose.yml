@@ -187,3 +187,4 @@ services:
       - DB_PASS=example
       - DB_HOST=mongo_database
       - DB_PORT=27017
+      - JWT_SECRET=secretsecretsecretsecretsecretsecretsecretsecret

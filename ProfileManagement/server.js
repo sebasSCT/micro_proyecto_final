@@ -22,6 +22,7 @@ app.post('/usuario', ProfileController.createProfile);
 app.get('/usuario/:id', ProfileController.getProfile);
 app.get('/usuario', ProfileController.getAllProfiles);
 app.put('/usuario/:id', ProfileController.updateProfile);
+app.delete('/usuario/:id', ProfileController.deleteProfile);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
