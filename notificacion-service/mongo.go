@@ -86,6 +86,7 @@ func SaveNotification(email string, message string) error {
 		"_id":     primitive.NewObjectID(),
 		"email":   email,
 		"message": message,
+		"status":  true, // Agrega el estado con valor true
 	}
 
 	_, err := notificationCollection.InsertOne(context.Background(), notification)

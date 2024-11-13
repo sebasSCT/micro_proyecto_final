@@ -4,69 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd81a2aa-93e2-4dc6-b64f-5880eef19eb0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/openapi.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/ProfileController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/UserProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/controllers/Reto3Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/controllers/Reto4Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/services/implementacion/AutenticacionServicioImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/services/interfaces/AutenticacionServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/services/interfaces/AutenticacionServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/utils/JWTUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/AutenticacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/AutenticacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/GeneralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/documentos/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/documentos/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/general/CambioPasswordDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/general/EmailDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/general/LoginDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/ActualizarUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/ActualizarUsuarioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/DetalleUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/DetalleUsuarioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/ItemUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/ItemUsuarioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/RegistroUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/dtos/usuario/RegistroUsuarioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/repositorios/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/repositorios/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/AutenticacionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/EmailServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/GeneralServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/GeneralServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/UsuarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/AutenticacionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/EmailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/GeneralService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/GeneralService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/interfaces/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/resources/openapi.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/resources/openapi.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/micro_auto_pruebas.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/Jenkinsfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/Pruebas.postman_collection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/autenticacion.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/general.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/step_definitions/autenticacionSteps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/step_definitions/generalSteps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/step_definitions/usuarioSteps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/features/usuario.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auto_pruebas/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notificacion-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notificacion-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notificacion-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notificacion-service/handelrs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/handelrs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notificacion-service/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notificacion-service/mongo.go" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/mongo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notificacion-service/rabbitmq.go" beforeDir="false" afterPath="$PROJECT_DIR$/../notificacion-service/rabbitmq.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../prometheus.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../prometheus.yml" afterDir="false" />
-    </list>
+    <list default="true" id="cd81a2aa-93e2-4dc6-b64f-5880eef19eb0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +85,7 @@
       <module name="ProfileManagement" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="DIRECTORY" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
@@ -190,6 +128,7 @@
       <workItem from="1731290643518" duration="3343000" />
       <workItem from="1731366706963" duration="1353000" />
       <workItem from="1731414667255" duration="28000" />
+      <workItem from="1731460663208" duration="987000" />
     </task>
     <servers />
   </component>
