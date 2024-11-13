@@ -27,7 +27,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new UsuarioExisteException("El usuario ya existe");
 
         if(usuario.email().isEmpty() ||
-       usuario.password().isEmpty()){
+            usuario.password().isEmpty()){
             throw new DatosIncompletosException("Datos de registro inválidos o incompletos");
         }
 

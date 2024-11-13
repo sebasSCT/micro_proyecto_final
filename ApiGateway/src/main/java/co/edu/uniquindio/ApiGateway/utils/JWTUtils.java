@@ -16,16 +16,17 @@ public class JWTUtils {
     public Jws<Claims> parseJwt(String jwtString) throws ExpiredJwtException,
             UnsupportedJwtException, MalformedJwtException, IllegalArgumentException {
         return Jwts.parserBuilder()
-                .setSigningKey( getKey() )
+                .setSigningKey(getKey())
                 .build()
                 .parseClaimsJws(jwtString);
-
     }
+
     public String extractIdFromToken(String token) throws Exception {
         Claims claims = parseJwt(token).getBody();
         return claims.get("id", String.class);
     }
-    private Key getKey(){
+
+    private Key getKey() {
         return new SecretKeySpec(Base64.getDecoder().decode(claveSecreta),
                 SignatureAlgorithm.HS256.getJcaName());
     }

@@ -177,7 +177,57 @@ paths:
                   error:
                     type: string
                     example: 'Profile not found'
-  /health:
+      security:
+        - bearerAuth: []  # Requiere autenticación con token Bearer
+
+    delete:
+      summary: Delete a user profile
+      description: Delete a user profile by their unique ID. Requires a valid token.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The ID of the user profile to delete.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Profile deleted successfully.
+        '401':
+          description: Unauthorized - Token not provided or invalid.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Token no válido'
+        '403':
+          description: Forbidden - Token ID does not match user ID.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+
+                  error:
+                    type: string
+                    example: 'No se puede eliminar: el ID del token no coincide con el ID del usuario'
+        '404':
+          description: Profile not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Profile not found'
+      security:
+        - bearerAuth: [ ]  # Requiere autenticación con token Bearer
+
+   /health:
     get:
       summary: Verifica el estado de la aplicación.
       description: Endpoint para verificar si la aplicación está activa y funcionando correctamente.
@@ -186,11 +236,6 @@ paths:
       responses:
         '200':
           description: La aplicación está activa.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
                   status:
                     type: string
                     example: "UP"
@@ -199,18 +244,19 @@ paths:
                     example: "The application is running smoothly."
         '500':
           description: Error del servidor.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
                   status:
                     type: string
                     example: "DOWN"
                   message:
                     type: string
                     example: "The application is currently experiencing issues."
+
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # Especifica el uso de tokens JWT
   schemas:
     UserProfile:
       type: object

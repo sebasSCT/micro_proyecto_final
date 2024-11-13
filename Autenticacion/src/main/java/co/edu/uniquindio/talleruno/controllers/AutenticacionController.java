@@ -86,8 +86,6 @@ public class AutenticacionController {
     public ResponseEntity<MensajeDTO<String>> registrarse(
             @Valid @RequestBody RegistroUsuarioDTO usuarioDTO) throws Exception {
         try{
-            usuarioService.registrarUsuario(usuarioDTO);
-
             rabbitMQSender.sendMessage("create", usuarioDTO.email());
 
             return ResponseEntity.status(HttpStatus.CREATED).body(new MensajeDTO<>(false, usuarioService.registrarUsuario(usuarioDTO)));

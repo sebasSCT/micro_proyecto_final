@@ -50,7 +50,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new DatosIncompletosException("Datos de registro inválidos o incompletos");
         }
 
-        Optional<Usuario> usuarioDB = usuarioRepository.findById(usuario.codigo());
+        Optional<Usuario> usuarioDB = usuarioRepository.obtenerUsuarioPorId(usuario.codigo());
 
         if (usuarioDB.isEmpty()) {
             throw new UsuarioNoEncontradoException("El usuario no existe");
@@ -75,7 +75,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new Exception("No puedes realizar ésta operación, porque no eres tú");
         }
 
-        Optional<Usuario> usuarioDB = usuarioRepository.findById(idCuenta);
+        Optional<Usuario> usuarioDB = usuarioRepository.obtenerUsuarioPorId(idCuenta);
 
         if (usuarioDB.isEmpty()) {
             throw new Exception("El usuario no existe");
@@ -97,7 +97,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new NoAutorizadoException("No puedes realizar ésta operación");
         }
 
-        Optional<Usuario> usuarioDB = usuarioRepository.findById(idCuenta);
+        Optional<Usuario> usuarioDB = usuarioRepository.obtenerUsuarioPorId(idCuenta);
 
         if (usuarioDB.isEmpty()) {
             throw new UsuarioNoEncontradoException("El usuario no existe");
