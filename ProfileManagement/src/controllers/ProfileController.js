@@ -94,15 +94,18 @@ exports.deleteProfile = async (req, res) => {
             return res.status(403).json({ error: 'No se puede eliminar: el ID del token no coincide con el ID del usuario' });
         }
 
-        // Intentar eliminar el perfil
-        const result = await UserProfile.deleteOne({ user_id: req.params.id });
-        if (result.deletedCount > 0) {
-            res.status(204).send(); // Sin contenido, indicando que se eliminó correctamente
+        // Intentar actualizar el perfil y cambiar su estado a false (borrado lógico)
+        const result = await UserProfile.updateOne(
+            { user_id: req.params.id },
+            { $set: { estado: false } }  // Marcamos el estado como false (borrado lógico)
+        );
+
+        if (result.nModified > 0) {
+            res.status(204).send(); // Sin contenido, indicando que se marcó correctamente como eliminado
         } else {
             res.status(404).json({ error: 'Profile not found' });
         }
     } catch (error) {
-        res.status(500).json({ error: 'Error deleting profile', details: error });
+        res.status(500).json({ error: 'Error al marcar el perfil como eliminado', details: error });
     }
 };
-
