@@ -1,3 +1,4 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const UserProfile = require('../models/UserProfile');
 
@@ -23,7 +24,12 @@ exports.getProfile = async (req, res) => {
     }
 };
 
+function getDecodedKey() {
+    return Buffer.from(process.env.JWT_SECRET, 'base64');
+}
+
 exports.updateProfile = async (req, res) => {
+    console.log(process.env.JWT_SECRET);
     try {
         const authHeader = req.headers.authorization;
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -33,7 +39,7 @@ exports.updateProfile = async (req, res) => {
         const token = authHeader.replace('Bearer ', '');
         let userIdFromToken;
         try {
-            const decodedToken = jwt.verify(token, process.env.JWT_SECRET); // Asegúrate de tener tu clave secreta en las variables de entorno
+            const decodedToken = jwt.verify(token, getDecodedKey()); // Asegúrate de tener tu clave secreta en las variables de entorno
             userIdFromToken = decodedToken.id;
         } catch (error) {
             return res.status(401).json({ error: 'Token no válido' });
@@ -71,40 +77,44 @@ exports.getAllProfiles = async (req, res) => {
     }
 };
 
+
 exports.deleteProfile = async (req, res) => {
     try {
-        // Obtener el token del encabezado Authorization
         const authHeader = req.headers.authorization;
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
             return res.status(401).json({ error: 'Token de autenticación no proporcionado o inválido' });
         }
 
-        // Extraer el token y obtener el ID del token
         const token = authHeader.replace('Bearer ', '');
         let userIdFromToken;
+
         try {
-            const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+            // Usamos la clave secreta decodificada para verificar el token
+            const decodedToken = jwt.verify(token, getDecodedKey());
             userIdFromToken = decodedToken.id;
         } catch (error) {
+            console.log("Error al verificar el token:", error.message);
             return res.status(401).json({ error: 'Token no válido' });
         }
 
-        // Verificar que el ID en el token coincida con el ID en los parámetros de la solicitud
         if (userIdFromToken !== req.params.id) {
             return res.status(403).json({ error: 'No se puede eliminar: el ID del token no coincide con el ID del usuario' });
         }
 
-        // Intentar actualizar el perfil y cambiar su estado a false (borrado lógico)
         const result = await UserProfile.updateOne(
-            { user_id: req.params.id },
-            { $set: { estado: false } }  // Marcamos el estado como false (borrado lógico)
+            { user_id: req.params.id, estado: true }, // Asegura que solo intente actualizar si el estado es true
+            { $set: { estado: false } }               // Cambia el estado a false
         );
 
-        if (result.nModified > 0) {
-            res.status(204).send(); // Sin contenido, indicando que se marcó correctamente como eliminado
+        // Verificar si el perfil fue encontrado y actualizado, independientemente de nModified
+        if (result.matchedCount > 0) {
+            // El perfil fue localizado, y si `estado` fue `true`, ya debería estar en `false` ahora.
+            return res.status(204).send(); // Se actualizó (o no era necesario modificar, pero existía)
         } else {
-            res.status(404).json({ error: 'Profile not found' });
+            // Si matchedCount es 0, el perfil no fue encontrado
+            return res.status(404).json({ error: 'Perfil no encontrado' });
         }
+
     } catch (error) {
         res.status(500).json({ error: 'Error al marcar el perfil como eliminado', details: error });
     }

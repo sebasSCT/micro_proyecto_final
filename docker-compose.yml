@@ -188,3 +188,13 @@ services:
       - DB_HOST=mongo_database
       - DB_PORT=27017
       - JWT_SECRET=secretsecretsecretsecretsecretsecretsecretsecret
+  
+  api-gateway:
+    build:
+      context: ./ApiGateway
+    ports:
+      - "8075:8075"
+    environment:
+      - auth=app-autenticacion
+      - crud=app-crud
+      - profile=app-perfil
