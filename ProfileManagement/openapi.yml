@@ -227,7 +227,7 @@ paths:
       security:
         - bearerAuth: [ ]  # Requiere autenticación con token Bearer
 
-   /health:
+  /health:
     get:
       summary: Verifica el estado de la aplicación.
       description: Endpoint para verificar si la aplicación está activa y funcionando correctamente.
@@ -236,6 +236,11 @@ paths:
       responses:
         '200':
           description: La aplicación está activa.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
                   status:
                     type: string
                     example: "UP"
@@ -244,6 +249,11 @@ paths:
                     example: "The application is running smoothly."
         '500':
           description: Error del servidor.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
                   status:
                     type: string
                     example: "DOWN"

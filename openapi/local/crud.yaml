@@ -3,6 +3,8 @@ info:
   title: API de Gestión de Usuarios
   version: 1.0.0
   description: API para gestionar usuarios, incluyendo registro, login,cambio de contraseña y operaciones CRUD
+servers:
+  - url: http://localhost:8084
 
 paths:
   /api/auth/usuarios:

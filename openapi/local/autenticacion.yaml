@@ -336,6 +336,7 @@ paths:
         - General
       parameters:
         - in: path
+          required: true
           name: email
           schema:
             type: string
@@ -570,10 +571,10 @@ components:
         error:
           type: boolean
         respuesta:
-          type: T
-        required:
-          - error
-          - respuesta
+          type: object
+      required:
+        - error
+        - respuesta
 
     LoginDTO:
       type: object
