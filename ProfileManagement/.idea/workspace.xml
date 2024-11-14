@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd81a2aa-93e2-4dc6-b64f-5880eef19eb0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/src/main/java/co/edu/uniquindio/ApiGateway/utils/JWTUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/src/main/java/co/edu/uniquindio/ApiGateway/utils/JWTUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiGateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/controllers/AutenticacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/controllers/AutenticacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/services/implementacion/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/src/main/java/co/edu/uniquindio/talleruno/services/implementacion/UsuarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Autenticacion/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Autenticacion/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/AutenticacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/controladores/AutenticacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/repositorios/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/repositorios/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CRUD/src/main/java/co/edu/uniquindio/CRUD/servicios/implementaciones/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ApiGateway/src/main/java/co/edu/uniquindio/ApiGateway/services/GatewayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ApiGateway/src/main/java/co/edu/uniquindio/ApiGateway/services/GatewayService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openapi.yml" beforeDir="false" afterPath="$PROJECT_DIR$/openapi.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/ProfileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ProfileController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,6 +168,8 @@
       <workItem from="1731509254196" duration="767000" />
       <workItem from="1731516681554" duration="593000" />
       <workItem from="1731521496037" duration="3586000" />
+      <workItem from="1731528088671" duration="2997000" />
+      <workItem from="1731544117766" duration="4602000" />
     </task>
     <servers />
   </component>

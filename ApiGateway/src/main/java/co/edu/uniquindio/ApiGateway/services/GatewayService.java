@@ -209,18 +209,24 @@ public class GatewayService {
 
         // Eliminar en los tres microservicios
         ResponseEntity<?> authResponse = restTemplate.exchange(
-                authServiceUrl + "/api/usuarios/" + codigo, HttpMethod.DELETE,
-                entity, Object.class
+                authServiceUrl + "/api/usuarios/" + codigo,
+                HttpMethod.DELETE,
+                entity,
+                Object.class
         );
 
         ResponseEntity<?> crudResponse = restTemplate.exchange(
-                crudServiceUrl + "/api/usuarios/" + codigo, HttpMethod.DELETE,
-                entity, Object.class
+                crudServiceUrl + "/api/usuarios/" + codigo,
+                HttpMethod.DELETE,
+                entity,
+                Object.class
         );
 
         ResponseEntity<?> profileResponse = restTemplate.exchange(
-                profileServiceUrl + "/usuario/" + codigo, HttpMethod.DELETE,
-                entity, Object.class
+                profileServiceUrl + "/usuario/" + codigo,
+                HttpMethod.DELETE,
+                entity,
+                Object.class
         );
 
         if (authResponse.getStatusCode().is2xxSuccessful() &&
