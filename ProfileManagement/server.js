@@ -1,9 +1,11 @@
 require('dotenv').config(); // Cargar las variables de entorno
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // Importa el middleware cors
 const ProfileController = require('./src/controllers/ProfileController');
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const PORT = 8079;
@@ -24,14 +26,12 @@ app.get('/usuario', ProfileController.getAllProfiles);
 app.put('/usuario/:id', ProfileController.updateProfile);
 app.delete('/usuario/:id', ProfileController.deleteProfile);
 
-app.get('/health', (req, res) => {
-    res.status(200).json({
-      status: 'UP',
-      message: 'The application is running smoothly.',
-    });
-  });
-  
-
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+app.use(cors({
+    origin: '*', // Permite cualquier origen
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'] // Encabezados permitidos
+}));

@@ -267,7 +267,7 @@ paths:
         '500':
           description: Error del servidor.
 
-  /actuator/metrics/health:
+  /actuator/health:
     get:
       summary: Estado de la salud de la aplicación
       description: Devuelve el estado de salud de la aplicación.
